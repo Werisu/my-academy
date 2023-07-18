@@ -1,18 +1,10 @@
 <div class="container mx-auto p-4">
   <h1 class="text-2xl font-bold mb-4">Receitas para Hipertrofia</h1>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div *ngFor="let receita of receitas" class="bg-white rounded-lg p-4 shadow">
+  <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4" [@slideUp]>
+    <div *ngFor="let receita of receitas" class="bg-white rounded-lg p-4 shadow hover:text-blue-400 hover:cursor-pointer" [routerLink]="['/receitas', receita.id]" [state]="{ receita: receita }">
       <h2 class="text-lg font-bold mb-2">{{ receita.nome }}</h2>
       <img src="{{ receita.imagem }}" alt="{{ receita.nome }}" class="w-full mb-4 rounded-lg">
       <p class="text-gray-600 mb-4">{{ receita.descricao }}</p>
-      <h3 class="text-lg font-bold mb-2">Ingredientes:</h3>
-      <ul class="list-disc pl-6">
-        <li *ngFor="let ingrediente of receita.ingredientes">{{ ingrediente }}</li>
-      </ul>
-      <h3 class="text-lg font-bold mb-2 mt-4">Modo de Preparo:</h3>
-      <ol class="list-decimal pl-6">
-        <li *ngFor="let passo of receita.modoPreparo">{{ passo }}</li>
-      </ol>
     </div>
   </div>
 </div>

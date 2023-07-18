@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { slideUpAnimation } from 'src/app/animations/animation';
 
 @Component({
@@ -7,10 +7,10 @@ import { slideUpAnimation } from 'src/app/animations/animation';
   styleUrls: ['./receitas.component.css'],
   animations: [slideUpAnimation]
 })
-export class ReceitasComponent {
-
+export class ReceitasComponent implements OnInit {
   receitas: any[] = [
     {
+      id: 0,
       nome: 'Frango Grelhado com Batata Doce',
       imagem: 'assets/caminho-da-imagem-do-frango-grelhado-com-batata-doce.jpeg',
       descricao: 'Uma receita deliciosa e rica em proteínas e carboidratos para ajudar no processo de hipertrofia muscular.',
@@ -30,6 +30,7 @@ export class ReceitasComponent {
       ]
     },
     {
+      id: 1,
       nome: 'Shake de Proteína com Aveia',
       imagem: 'assets/caminho-da-imagem-do-shake-de-proteina-com-aveia.jpg',
       descricao: 'Um shake delicioso e nutritivo, ideal para o pós-treino e para estimular o ganho de massa muscular.',
@@ -47,6 +48,7 @@ export class ReceitasComponent {
       ]
     },
     {
+      id: 2,
       nome: 'Omelete de Claras com Vegetais',
       imagem: 'assets/caminho-da-imagem-do-omelete-de-claras-com-vegetais.jpg',
       descricao: 'Um omelete saudável e proteico, repleto de vegetais nutritivos.',
@@ -66,6 +68,7 @@ export class ReceitasComponent {
       ]
     },
     {
+      id: 3,
       nome: 'Salada de Quinoa com Frango',
       imagem: 'assets/caminho-da-imagem-da-salada-de-quinoa-com-frango.jpg',
       descricao: 'Uma salada nutritiva e saborosa, que combina proteínas, carboidratos e vegetais.',
@@ -84,6 +87,7 @@ export class ReceitasComponent {
       ]
     },
     {
+      id: 4,
       nome: 'Panquecas de Aveia e Banana',
       imagem: 'assets/caminho-da-imagem-das-panquecas-de-aveia-e-banana.jpg',
       descricao: 'Panquecas saudáveis e ricas em carboidratos, perfeitas para um café da manhã nutritivo.',
@@ -104,6 +108,7 @@ export class ReceitasComponent {
       ]
     },
     {
+      id: 5,
       nome: 'Salmão Assado com Legumes',
       imagem: 'assets/caminho-da-imagem-do-salmao-assado-com-legumes.jpg',
       descricao: 'Um prato completo e rico em ômega-3, proteínas e vitaminas, perfeito para uma refeição saudável e saborosa.',
@@ -125,5 +130,9 @@ export class ReceitasComponent {
     },
     // Adicione mais receitas aqui...
   ];
+
+  ngOnInit(): void {
+    localStorage.setItem('receitas', JSON.stringify(this.receitas));
+  }
 
 }
