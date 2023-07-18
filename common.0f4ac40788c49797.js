@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_academy=self.webpackChunkmy_academy||[]).push([[592],{752:(s,t,e)=>{e.d(t,{V:()=>n});var a=e(340);const n=(0,a.X$)("slideUp",[(0,a.eR)(":enter",[(0,a.IO)(":enter",[(0,a.oB)({transform:"translateY(50%)",opacity:0}),(0,a.EY)(100,(0,a.jt)("300ms ease-out",(0,a.oB)({transform:"translateY(0)",opacity:1})))],{optional:!0})])])}}]);
