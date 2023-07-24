@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { fadeAnimation } from 'src/app/animations/animation';
 
 @Component({
   selector: 'app-imc',
   templateUrl: './imc.component.html',
-  styleUrls: ['./imc.component.css']
+  styleUrls: ['./imc.component.css'],
+  animations: [
+    fadeAnimation
+  ]
 })
 export class ImcComponent {
 

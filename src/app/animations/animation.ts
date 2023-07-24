@@ -10,3 +10,13 @@ export const slideUpAnimation = trigger('slideUp', [
     ], { optional: true }),
   ])
 ]);
+
+export const fadeAnimation = trigger('fade', [
+  transition(':enter', [
+    style({ opacity: 0 }), // Define a opacidade inicial como 0
+    animate('300ms', style({ opacity: 1 })) // Anima a opacidade para 1
+  ]),
+  transition(':leave', [
+    animate('300ms', style({ opacity: 0 })) // Anima a opacidade para 0 ao sair
+  ])
+]);
