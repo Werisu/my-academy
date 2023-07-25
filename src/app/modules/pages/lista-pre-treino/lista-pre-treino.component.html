@@ -1,0 +1,31 @@
+<div
+  *ngIf="list$ | async as listFirebase"
+  class="max-w-3xl mx-auto p-8 mt-10 bg-white rounded-lg shadow"
+>
+  <h2 class="mb-4">
+    Check-list de
+    <span class="text-green-500 font-bold">{{
+      dateCurrent | date : "dd/MM/yyyy"
+    }}</span>
+  </h2>
+  <h1 class="text-2xl font-bold mb-6">
+    Pontos principais do vídeo do Lalazolas:
+  </h1>
+  <div *ngFor="let itemFirebase of listFirebase">
+    <div
+      *ngFor="let item of itemFirebase.checklist; let i = index"
+      class="bg-gray-100 p-4 rounded-lg mb-4 flex items-center cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-1 hover:duration-75"
+      [ngClass]="{ 'line-through bg-green-400 text-white': item.check }"
+      (click)="changeCheck(itemFirebase, i, !item.check)"
+    >
+      <input
+        [checked]="item.check"
+        type="checkbox"
+        class="form-checkbox h-5 w-5 mr-3"
+      />
+      <span>{{ item.order }} - {{ item.description }}</span>
+    </div>
+  </div>
+</div>
+<!-- {{ list$ | async | json }} (change)="changeCheck(itemFirebase)"
+<button (click)="saveData()">teste</button> -->
