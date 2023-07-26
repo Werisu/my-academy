@@ -11,7 +11,7 @@
   <h1 class="text-2xl font-bold mb-6">
     Pontos principais do vídeo do Lalazolas:
   </h1>
-  <div *ngFor="let itemFirebase of listFirebase">
+  <div [@listState] *ngFor="let itemFirebase of listFirebase">
     <div
       *ngFor="let item of itemFirebase.checklist; let i = index"
       class="bg-gray-100 p-4 rounded-lg mb-4 flex items-center cursor-pointer shadow-md hover:shadow-xl hover:-translate-y-1 hover:duration-75"

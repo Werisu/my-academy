@@ -8,38 +8,13 @@ import { Timestamp } from '@angular/fire/firestore';
 import { map, Observable } from 'rxjs';
 import { CheckListRoot, CheckLists } from './checklist';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
-const checkAnimation = trigger('checkboxAnimation', [
-  state('unchecked', style({
-    backgroundColor: 'transparent',
-    color: 'black',
-    borderColor: 'gray'
-  })),
-  state('checked', style({
-    backgroundColor: 'green',
-    color: 'white',
-    borderColor: 'green'
-  })),
-  transition('unchecked <=> checked', animate('175ms cubic-bezier(0.1, 0.1, 0.25, 1)'))
-]);
-
-const checkAnimationBefore = trigger('beforeAnimation', [
-  state('unchecked', style({
-    clipPath: 'polygon(0 0, 0 0, 0% 100%, 0 100%)',
-    opacity: 0
-  })),
-  state('checked', style({
-    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
-    opacity: 1
-  })),
-  transition('unchecked <=> checked', animate('200ms cubic-bezier(0.25, 0.46, 0.45, 0.94)'))
-])
+import { listStateTrigger } from 'src/app/animations/animation';
 
 @Component({
   selector: 'app-lista-pre-treino',
   templateUrl: './lista-pre-treino.component.html',
   styleUrls: ['./lista-pre-treino.component.css'],
-  animations: [checkAnimation, checkAnimationBefore],
+  animations: [listStateTrigger],
 })
 export class ListaPreTreinoComponent implements OnInit {
   public dateCurrent = new Date();
